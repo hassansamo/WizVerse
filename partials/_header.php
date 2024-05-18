@@ -2,7 +2,7 @@
 session_start();
 echo '<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="../forum">
+        <a class="navbar-brand" href="../wizverse">
             <img src="img/logo.png" alt="website logo" style="width: 115px; height: 35px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -11,10 +11,10 @@ echo '<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="../forum">Home</a>
+                    <a class="nav-link active" href="../wizverse">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../forum/about.php">About</a>
+                    <a class="nav-link" href="../wizverse/about.php">About</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Top Categories </a>
@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 echo '</ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../forum/contact.php">Contact</a>
+                    <a class="nav-link" href="../wizverse/contact.php">Contact</a>
                 </li>
             </ul>
 
@@ -40,6 +40,7 @@ echo '</ul>
             <!-- Login/Logout and Signup Buttons -->';
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     $imgOf = "headshot";
+    $orientation = "squarish";
     include 'partials/_unsplash.php';
     echo '<a href="#" data-bs-toggle="tooltip" data-bs-title="Welcome, ' . ucwords(substr($_SESSION['useremail'], 0, strpos($_SESSION['useremail'], '@'))) . '" data-bs-placement="bottom"><img src="' . $imageUrl . '" alt="user image" class="rounded-circle mx-3 img-thumbnail" width="50px"></a>';
     echo '<a class="btn btn-danger" href="./partials/_logout.php" role="button">Logout</a>';
@@ -73,4 +74,13 @@ if (isset($_GET['loggedin']) && $_GET['loggedin'] == "false") {
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }
+if (isset($_GET['query']) && $_GET['query'] == "posted") {
+    echo '
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Your message has been sent!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    ';
+}
+
 ?>

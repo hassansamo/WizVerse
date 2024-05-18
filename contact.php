@@ -15,50 +15,25 @@
 <body data-bs-theme="dark">
     <?php require 'partials/_dbconnect.php' ?>
     <?php require 'partials/_header.php' ?>
+    <?php
+    ?>
     <h1 class="text-center mt-4 fw-bold">Contact Us</h1>
-    <div class="container py-4">
-        <form class="row g-3">
+    <div class="container py-4 mb-5" style="min-height: 70vh;">
+        <form class="row g-3" method="POST" action="./partials/_handleContact.php">
             <div class="col-md-6">
                 <label for="userName" class="form-label">Username</label>
-                <input type="text" class="form-control" id="userName">
+                <input type="text" class="form-control" id="userName" name="userName" required>
             </div>
             <div class="col-md-6">
                 <label for="userEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="userEmail">
+                <input type="email" class="form-control" id="userEmail" name="userEmail" required>
             </div>
             <div class="col-12">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="message" class="form-label">What can we help you with?</label>
+                <textarea class="form-control" id="message" rows="8" name="message" required></textarea>
             </div>
             <div class="col-12">
-                <label for="inputAddress2" class="form-label">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="col-md-6">
-                <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
-            <div class="col-12">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>
